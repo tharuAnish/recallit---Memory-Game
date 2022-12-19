@@ -1,0 +1,46 @@
+.buttonBox {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 120px;
+  width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newButton {
+  padding: 13px 25px;
+  background-color: var(--color-primary-2);
+  color: #cfbcecda;
+  border-radius: 8px;
+  /* margin: 30px auto 20px; */
+  outline: 2px solid #2e243b;
+  outline-offset: -7px;
+  font-size: 1.1rem;
+  transition: all 0.1s ease-in-out;
+}
+
+.newButton:not(:disabled):active {
+  padding: 14px 26px;
+}
+
+.newButton:hover {
+  outline: 2px solid #3a1e5f;
+}
+
+.moves {
+  color: #cfbcecda;
+  font-size: 1.2rem;
+}
+
+/*Card*/
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 60vw;
+}

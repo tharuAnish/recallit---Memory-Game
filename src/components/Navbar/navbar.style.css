@@ -1,0 +1,13 @@
+.navbar {
+  background-color: var(--color-primary-2);
+  height: 66px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #b7a7cf;
+  box-shadow: 2px 5px 22px rgba(0, 0, 0, 0.199);
+}
+
+.navText {
+  font-weight: 500;
+}
