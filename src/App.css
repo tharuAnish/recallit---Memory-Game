@@ -25,7 +25,7 @@
 }
 
 .newButton:hover {
-  outline: 2px solid #3a1e5f;
+  outline: 2px solid #5d25a7;
 }
 
 .moves {
@@ -39,10 +39,44 @@
 .cardGrid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 15px;
   margin-top: 20px;
   margin-bottom: 40px;
   margin-left: auto;
   margin-right: auto;
-  width: 50vw;
+  width: 690px;
+  place-content: center;
 }
+
+@media screen and (max-width: 800px) {
+  .buttonBox {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px;
+    width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cardGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 360px;
+    place-content: center;
+    gap: 0px;
+  }
+  .newButton {
+    position: absolute;
+    bottom: 90px;
+  }
+}
+
+/* @media screen and (max-height: 740px) {
+  .newButton {
+    position: absolute;
+    bottom: 10px;
+  }
+} */
