@@ -4,10 +4,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #b7a7cf;
+  color: #a08cbe;
   box-shadow: 2px 5px 22px rgba(0, 0, 0, 0.199);
+  width: 100%;
 }
 
 .navText {
   font-weight: 500;
+  cursor: pointer;
 }
