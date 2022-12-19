@@ -1,0 +1,10 @@
+.cardFront,
+.cardBack {
+  width: 180px;
+  height: 180px;
+}
+
+.card img {
+  border-radius: 7px;
+  border: 2px solid #3c2b50;
+}
