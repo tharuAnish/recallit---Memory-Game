@@ -1,0 +1,26 @@
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  height: 60px;
+  display: grid;
+  place-content: center;
+}
+
+.hr {
+  border: 1px solid #47315f;
+  width: 85vw;
+  margin: 0 auto 10px;
+}
+
+.footerText {
+  color: #564566;
+  font-size: 0.9rem;
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    font-size: 0.8rem;
+  }
+}

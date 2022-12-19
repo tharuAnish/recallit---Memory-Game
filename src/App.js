@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import "./App.css"
+import Footer from "./components/Footer"
 import Navbar from "./components/Navbar"
 import SingleCard from "./components/SingleCard"
 
@@ -18,6 +19,7 @@ function App() {
   const [turns, setTurns] = useState(0)
   const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
+  const [disabled, setDisabled] = useState(false)
 
   // shuffle cards for new game
   const shuffleCards = () => {
@@ -25,6 +27,8 @@ function App() {
       .sort(() => Math.random() - 0.5)
       .map((card) => ({ ...card, id: Math.random() }))
 
+    setChoiceOne(null)
+    setChoiceTwo(null)
     setCards(shuffledCards)
     setTurns(0)
   }
@@ -36,6 +40,7 @@ function App() {
   // compare two selected cards
   useEffect(() => {
     if (choiceOne && choiceTwo) {
+      setDisabled(true)
       if (choiceOne.src === choiceTwo.src) {
         // choice 1 src match choice 2 srcwe have a match
         setCards((prevCards) => {
@@ -50,7 +55,8 @@ function App() {
         })
         resetTurn()
       } else {
-        resetTurn()
+        setTimeout(() => resetTurn(), 1000) //delayig in flipping 2nd card in mili sec
+        // wait 1000 mili sec and fire that function
       }
     }
   }, [choiceOne, choiceTwo])
@@ -62,7 +68,15 @@ function App() {
     setChoiceOne(null)
     setChoiceTwo(null)
     setTurns((prevTurn) => prevTurn + 1)
+    setDisabled(false)
   }
+
+  // starting a new game automatically ,
+  // fire a function whean a component forst load
+
+  useEffect(() => {
+    shuffleCards()
+  }, [])
 
   return (
     <div className="App">
@@ -82,9 +96,11 @@ function App() {
             handleChoice={handleChoice}
             flipped={card === choiceOne || card === choiceTwo || card.matched}
             /* flip thecard if these conditions match */
+            disabled={disabled}
           />
         ))}
       </div>
+      <Footer />
     </div>
   )
 }
