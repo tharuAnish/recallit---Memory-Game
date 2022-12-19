@@ -13,3 +13,9 @@
   font-weight: 500;
   cursor: pointer;
 }
+
+@media screen and (max-width: 800px) {
+  .navText {
+    font-size: 1.5rem;
+  }
+}
