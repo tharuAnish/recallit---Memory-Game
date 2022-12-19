@@ -8,3 +8,16 @@
   border-radius: 7px;
   border: 2px solid #3c2b50;
 }
+
+.card {
+  position: relative;
+}
+
+.card .cardFront {
+  transform: rotateY(90deg);
+  position: absolute;
+}
+
+.flipped .cardFront {
+  transform: rotate(0deg);
+}

@@ -1,22 +1,22 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./App.css"
 import Navbar from "./components/Navbar"
 import SingleCard from "./components/SingleCard"
 
 const cardImages = [
   //Array of cards
-  { src: "/img/helmet-1.png" },
-  { src: "/img/potion-1.png" },
-  { src: "/img/ring-1.png" },
-  { src: "/img/scroll-1.png" },
-  { src: "/img/shield-1.png" },
-  { src: "/img/sword-1.png" },
+  { src: "/img/helmet-1.png", matched: false },
+  { src: "/img/potion-1.png", matched: false },
+  { src: "/img/ring-1.png", matched: false },
+  { src: "/img/scroll-1.png", matched: false },
+  { src: "/img/shield-1.png", matched: false },
+  { src: "/img/sword-1.png", matched: false },
 ]
 
 function App() {
   const [cards, setCards] = useState([])
   const [turns, setTurns] = useState(0)
-  const [choiceOne, setChoiceOne] = useState(null) //Two state for matching card
+  const [choiceOne, setChoiceOne] = useState(null)
   const [choiceTwo, setChoiceTwo] = useState(null)
 
   // shuffle cards for new game
@@ -30,9 +30,38 @@ function App() {
   }
 
   const handleChoice = (card) => {
-    // taking card as an argument
-    console.log(card) // with this we get whichever the card we clicked
-    choiceOne ? setChoiceTwo(card) : setChoiceTwo(card) // to know which choice one or two
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card)
+  }
+
+  // compare two selected cards
+  useEffect(() => {
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        // choice 1 src match choice 2 srcwe have a match
+        setCards((prevCards) => {
+          return prevCards.map((card) => {
+            // returning new array of card
+            if (card.src === choiceOne.src) {
+              return { ...card, matched: true }
+            } else {
+              return card
+            }
+          })
+        })
+        resetTurn()
+      } else {
+        resetTurn()
+      }
+    }
+  }, [choiceOne, choiceTwo])
+
+  console.log(cards)
+
+  // reset choice and increase turn
+  const resetTurn = () => {
+    setChoiceOne(null)
+    setChoiceTwo(null)
+    setTurns((prevTurn) => prevTurn + 1)
   }
 
   return (
@@ -42,12 +71,18 @@ function App() {
         <button className="newButton" onClick={shuffleCards}>
           New Game
         </button>
-        <p className="moves">Moves :</p>
+        <p className="moves">Moves : {turns}</p>
       </div>
 
       <div className="cardGrid">
         {cards.map((card) => (
-          <SingleCard key={card.id} card={card} handleChoice={handleChoice} />
+          <SingleCard
+            key={card.id}
+            card={card}
+            handleChoice={handleChoice}
+            flipped={card === choiceOne || card === choiceTwo || card.matched}
+            /* flip thecard if these conditions match */
+          />
         ))}
       </div>
     </div>
