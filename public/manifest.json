@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Recallit",
+  "name": "Recallit - A memory game",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "favicon.ico",
@@ -13,13 +14,20 @@
       "sizes": "192x192"
     },
     {
+      "src": "logo384.png",
+      "type": "image/png",
+      "sizes": "384x384",
+      "purpose": "maskable"
+    },
+    {
       "src": "logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": ".",
+  "start_url": "/https://recallit.netlify.app/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#342147",
+  "background_color": "#1b1424",
+  "description": "A simple memory game where you flip remember and match two cards"
 }
