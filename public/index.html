@@ -4,10 +4,12 @@
     <meta charset="utf-8" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+    <meta name="theme-color" content="#342147" />
     <meta
-      name="description"
-      content="Web site created using create-react-app"
+      name="Recallit - A Memory game"
+      content="
+      Web site created using create-react-app. This is a memory game in which you flip cards, memorise them, and then flip the matching card and see the number of moves.
+      "
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
 
@@ -18,5 +20,13 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <script>
+      //To check if browser supports service worker or not
+      if (typeof navigator.serviceWorker !== "undefined") {
+        navigator.serviceWorker.register("serviceWorker.js")
+        console.log("worker registered")
+      }
+    </script>
   </body>
 </html>
