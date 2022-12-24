@@ -25,7 +25,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/https://recallit.netlify.app/",
+  "start_url": ".",
   "display": "standalone",
   "theme_color": "#342147",
   "background_color": "#1b1424",
